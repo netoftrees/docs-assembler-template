@@ -9,147 +9,167 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.join(__dirname, '..');
 
-interface PackageJson {
-    version: string;
+interface DistributionManifest {
+  version: string;
+  name: string;
+  contents: Array<{
+    source: string;
+    dest: string;
+    type: 'file' | 'directory';
+  }>;
+  routing: Record<string, string>;
 }
 
-async function copyDir(
-    src: string, 
-    dest: string
-): Promise<void> {
-
-    const entries = await fs.readdir(src, { withFileTypes: true });
-
-    await Promise.all(
-
-        entries.map(
-
-            async (entry) => {
-
-                const srcPath = path.join(src, entry.name);
-                const destPath = path.join(dest, entry.name);
-
-                if (entry.isDirectory()) {
-
-                    await fs.mkdir(destPath, { recursive: true });
-                    await copyDir(srcPath, destPath);
-                }
-                else {
-                    await fs.copyFile(srcPath, destPath);
-                }
-            }
-        )
-    );
+async function copyDir(src: string, dest: string): Promise<void> {
+  await fs.mkdir(dest, { recursive: true });
+  const entries = await fs.readdir(src, { withFileTypes: true });
+  
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+    
+    if (entry.isDirectory()) {
+      await copyDir(srcPath, destPath);
+    } else {
+      await fs.copyFile(srcPath, destPath);
+    }
+  }
 }
 
-async function createZip(
-    sourceDir: string, 
-    outputPath: string
-): Promise<void> {
+async function createZip(sourceDir: string, outputPath: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const output = createWriteStream(outputPath);
+    const archive = archiver('zip', { zlib: { level: 9 } });
 
-    return new Promise(
-        
-        (resolve, reject) => {
-
-        const output = createWriteStream(outputPath);
-        const archive = archiver('zip', { zlib: { level: 9 } });
-
-        output.on('close', () => resolve());
-        archive.on('error', reject);
-
-        archive.on('warning', (err: any) => {
-
-            if (err.code === 'ENOENT') {
-
-                console.warn('Archive warning:', err);
-            }
-            else {
-
-                throw err;
-            }
-        });
-
-        archive.pipe(output);
-        archive.directory(sourceDir, false);
-        archive.finalize();
+    output.on('close', () => resolve());
+    archive.on('error', reject);
+    archive.on('warning', (err) => {
+      if (err.code === 'ENOENT') console.warn('Archive warning:', err);
+      else throw err;
     });
+
+    archive.pipe(output);
+    archive.directory(sourceDir, false);
+    archive.finalize();
+  });
+}
+
+async function countFiles(dir: string): Promise<number> {
+  let count = 0;
+  const entries = await fs.readdir(dir, { recursive: true, withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.isFile()) count++;
+  }
+  return count;
 }
 
 async function main() {
+  // Read source manifest
+  const manifestPath = path.join(ROOT, '_distribution', 'distribution.json');
+  const manifest: DistributionManifest = JSON.parse(
+    await fs.readFile(manifestPath, 'utf8')
+  );
 
-    // Build first
-    console.log('🔨 Running vite build...');
-    execSync('vite build', { cwd: ROOT, stdio: 'inherit' });
+  console.log(`📋 Read manifest: ${manifest.name} v${manifest.version}`);
+  console.log(`   ${manifest.contents.length} items to package`);
 
-    // Get version from package.json
-    const pkgPath = path.join(ROOT, 'package.json');
-    const pkg: PackageJson = JSON.parse(await fs.readFile(pkgPath, 'utf8'));
-    const version = pkg.version;
+  // Build first
+  console.log('\n🔨 Running vite build...');
+  execSync('vite build', { cwd: ROOT, stdio: 'inherit' });
 
-    const buildDir = path.join(ROOT, 'build', 'assets');
+  // Get package version (can be overridden in manifest or use package.json)
+  const pkgPath = path.join(ROOT, 'package.json');
+  const pkg = JSON.parse(await fs.readFile(pkgPath, 'utf8'));
+  const version = pkg.version;
 
-    // Define destinations
-    const fragmentRendererDir = path.join(ROOT, 'docs', 'assets', 'FragmentRenderer');
-    const versionDir = path.join(ROOT, '_distribution', version, 'assets');
-    const latestDir = path.join(ROOT, '_distribution', 'latest', 'assets');
+  const STAGE_DIR = path.join(ROOT, '.staging');
+  const DIST_DIR = path.join(ROOT, '_distribution');
 
-    const destinations = [fragmentRendererDir, versionDir, latestDir];
+  // Clean staging
+  console.log('\n📦 Preparing staging area...');
+  await fs.rm(STAGE_DIR, { recursive: true, force: true });
+  await fs.mkdir(STAGE_DIR, { recursive: true });
 
-    // Process each destination
-    for (const dest of destinations) {
-
-        const relPath = path.relative(ROOT, dest);
-        console.log(`\n📦 Packaging to ${relPath}...`);
-
-        // Clear existing contents completely
-        await fs.rm(dest, { recursive: true, force: true });
-
-        // Create fresh directory
-        await fs.mkdir(dest, { recursive: true });
-
-        // Copy all build files (preserves Vite's hashed filenames)
-        await copyDir(buildDir, dest);
-        
-        console.log(`   ✓ Copied build contents to ${relPath}`);
+  // Copy files according to manifest
+  for (const item of manifest.contents) {
+    const srcPath = path.join(ROOT, item.source);
+    const destPath = path.join(STAGE_DIR, item.dest);
+    
+    const exists = await fs.access(srcPath).then(() => true).catch(() => false);
+    if (!exists) {
+      console.log(`   ⚠️  Skipping missing: ${item.source}`);
+      continue;
     }
 
-    // Create zip archives
-    console.log('\n📦 Creating zip archives...');
+    await fs.mkdir(path.dirname(destPath), { recursive: true });
     
-    const distDir = path.join(ROOT, '_distribution');
-    const zipVersionPath = path.join(distDir, `docs-assembler-assets-${version}.zip`);
-    const zipLatestPath = path.join(distDir, 'docs-assembler-assets-latest.zip');
-    
-    await createZip(buildDir, zipVersionPath);
-    await createZip(buildDir, zipLatestPath);
-    
-    // Copy zips to versioned folders for CDN access
-    await fs.copyFile(zipVersionPath, path.join(versionDir, '..', 'assets.zip'));
-    await fs.copyFile(zipLatestPath, path.join(latestDir, '..', 'assets.zip'));
+    if (item.type === 'directory') {
+      await copyDir(srcPath, destPath);
+      console.log(`   ✓ ${item.source}/ -> ${item.dest}/`);
+    } else {
+      await fs.copyFile(srcPath, destPath);
+      console.log(`   ✓ ${item.source} -> ${item.dest}`);
+    }
+  }
 
-    // Generate manifest
-    const manifest = {
-        version,
-        generatedAt: new Date().toISOString(),
-        zipUrl: `https://cdn.jsdelivr.net/gh/netoftrees/docs-assembler-template@latest/_distribution/latest/assets.zip`,
-        zipSize: (await fs.stat(zipLatestPath)).size,
-        fileCount: (await fs.readdir(buildDir, { recursive: true })).filter(f => !f.includes('/')).length
-    };
+  // Create distribution directories
+  const versionDir = path.join(DIST_DIR, version);
+  const latestDir = path.join(DIST_DIR, 'latest');
+  
+  await fs.mkdir(versionDir, { recursive: true });
+  await fs.mkdir(latestDir, { recursive: true });
 
-    await fs.writeFile(
-        path.join(versionDir, '..', 'manifest.json'),
-        JSON.stringify(manifest, null, 2)
-    );
-    await fs.writeFile(
-        path.join(latestDir, '..', 'manifest.json'),
-        JSON.stringify(manifest, null, 2)
-    );
+  // Create zip
+  const zipName = `${manifest.name}.zip`;
+  const versionZip = path.join(versionDir, zipName);
+  const latestZip = path.join(latestDir, zipName);
+  const rootZip = path.join(DIST_DIR, `${manifest.name}-${version}.zip`);
 
-    console.log(`\n✅ Complete! Version ${version} ready for commit.`);
-    console.log(`   Zip: ${zipLatestPath} (${manifest.zipSize} bytes)`);
+  console.log('\n🗜️  Creating zip archives...');
+  await createZip(STAGE_DIR, versionZip);
+  
+  await fs.copyFile(versionZip, latestZip);
+  await fs.copyFile(versionZip, rootZip);
+
+  // Generate output manifest for extension to read
+  const fileCount = await countFiles(STAGE_DIR);
+  const zipStats = await fs.stat(latestZip);
+  
+  const outputManifest = {
+    version,
+    name: manifest.name,
+    generatedAt: new Date().toISOString(),
+    zipName,
+    zipSize: zipStats.size,
+    fileCount,
+    routing: manifest.routing,
+    contents: manifest.contents.map(c => ({
+      path: c.dest,
+      type: c.type
+    }))
+  };
+
+  await fs.writeFile(
+    path.join(versionDir, 'manifest.json'),
+    JSON.stringify(outputManifest, null, 2)
+  );
+  await fs.writeFile(
+    path.join(latestDir, 'manifest.json'),
+    JSON.stringify(outputManifest, null, 2)
+  );
+
+  // Clean staging
+  console.log('\n🧹 Cleaning up...');
+  // await fs.rm(STAGE_DIR, { recursive: true, force: true });
+
+  console.log('\n✅ Complete!');
+  console.log(`   Version: ${version}`);
+  console.log(`   Files: ${fileCount}`);
+  console.log(`   Size: ${(zipStats.size / 1024).toFixed(1)} KB`);
+  console.log(`   Update distribution.json version when you change contents`);
 }
 
 main().catch(err => {
-    console.error('❌ Error:', err);
-    process.exit(1);
+  console.error('\n❌ Error:', err);
+  process.exit(1);
 });

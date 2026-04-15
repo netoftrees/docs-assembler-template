@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "name": "docs-assembler-assets",
+  "contents": [
+    {
+      "source": "build/assets",
+      "dest": "docs/assets/FragmentRenderer",
+      "type": "directory"
+    },
+    {
+      "source": "docs/_includes",
+      "dest": "docs/_includes",
+      "type": "directory"
+    },
+    {
+      "source": "docs/_layouts",
+      "dest": "docs/_layouts",
+      "type": "directory"
+    },
+    {
+      "source": "docs/assets/images",
+      "dest": "docs/assets/images",
+      "type": "directory"
+    },
+    {
+      "source": "docs/assets/scss",
+      "dest": "docs/assets/scss",
+      "type": "directory"
+    },
+    {
+      "source": "docs/_config.yml",
+      "dest": "docs/_config.yml",
+      "type": "file"
+    },
+    {
+      "source": "docs/404.html",
+      "dest": "docs/404.html",
+      "type": "file"
+    },
+    {
+      "source": ".templates",
+      "dest": ".templates",
+      "type": "directory"
+    },
+    {
+      "source": ".gitattributes",
+      "dest": "root/.gitattributes",
+      "type": "file"
+    }
+  ],
+  "routing": {
+    "docs/": "{docsFolder}/",
+    "tsmaps/": "tsmaps/",
+    ".templates/": ".templates/",
+    "root/": ""
+  }
+}
