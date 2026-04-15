@@ -3,7 +3,7 @@
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "strict": true,
     "strictNullChecks": true,
     "sourceMap": true,
@@ -18,8 +18,6 @@
     "module": "ES2022", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
     "lib": [ /* Specify library files to be included in the compilation. */
       "dom",
-      "ES6",
-      "es2020",
       "es2022"
     ]
   },
