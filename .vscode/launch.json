@@ -15,20 +15,8 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug modify-html.js",
+            "name": "Debug _scripts/modify-html.js",
             "program": "${workspaceFolder}/modify-html.js",
-            "skipFiles": [
-                "<node_internals>/**"
-            ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Debug Yarn build",
-            "program": "${workspaceFolder}/node_modules/.bin/yarn",
-            "args": [
-                "build"
-            ],
             "skipFiles": [
                 "<node_internals>/**"
             ]

@@ -9,8 +9,9 @@
     "build": "tsc && vite build --mode production",
     "min-build": "tsc && npx vite build --config vite-min.config.js",
     "serve": "vite preview --port 1223",
+    "build:package": "yarn build && tsx _scripts/package-assets.ts",
     "build:jekyll": "jekyll build",
-    "modify:html": "node modify-html.js",
+    "modify:html": "node _scripts/modify-html.js",
     "build-modify:jekyll": "yarn build:jekyll && yarn modify:html",
     "build-modify:jekyll-dev": "yarn build:jekyll && yarn modify:html && vite"
   },
@@ -18,6 +19,7 @@
     "@vitejs/plugin-basic-ssl": "^1.0.1",
     "sass": "*",
     "timing-object": "^3.1.96",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "*",
     "vite-plugin-mkcert": "^1.16.0",

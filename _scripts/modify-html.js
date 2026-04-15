@@ -4,7 +4,7 @@ import { JSDOM } from 'jsdom';
 
 // Configuration
 const folderPath = 'root/_site'; // Path to Jekyll output
-const templatePath = 'template.html'; // Path to HTML template in repo root
+const templatePath = '_template.html'; // Path to HTML template in repo root
 const treeSolveGuideSelector = '#treeSolveGuide'; // CSS selector for insertion
 
 

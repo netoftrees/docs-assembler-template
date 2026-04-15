@@ -5,8 +5,8 @@
 
 import { defineConfig } from 'vite';
 import mkcert from 'vite-plugin-mkcert';
-import path from 'path';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+// import path from 'path';
+// import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 
 // https://vitejs.dev/config/
@@ -46,14 +46,14 @@ export default defineConfig({
     plugins: [
         mkcert(),
         // visualizer(),
-        viteStaticCopy({
-            targets: [
-                {
-                    src: 'src/modules/components/fragments/scss/fragments.scss',
-                    dest: '../build'
-                }
-            ]
-        })
+        // viteStaticCopy({
+        //     targets: [
+        //         {
+        //             src: 'src/modules/components/fragments/scss/fragments.scss',
+        //             dest: '../build'
+        //         }
+        //     ]
+        // })
     ],
 
     css: {
