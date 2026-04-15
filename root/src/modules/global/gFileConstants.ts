@@ -6,7 +6,7 @@ const gFileConstants = {
     fragmentFileExtension: '.html',
     guideOutlineFilename: 'outline.tsoln',
     guideRenderCommentTag: 'tsGuideRenderComment ',
-    fragmentRenderCommentTag: 'tsFragmentRenderComment ',
+    fragmentRenderCommentTag: 'tsFragmentRenderComment '
 };
 
 export default gFileConstants;

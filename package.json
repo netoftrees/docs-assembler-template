@@ -9,7 +9,13 @@
     "build": "tsc && vite build --mode production",
     "min-build": "tsc && npx vite build --config vite-min.config.js",
     "serve": "vite preview --port 1223",
-    "build:package": "yarn build && tsx _scripts/package-assets.ts",
+
+    "update:docs": "tsx _scripts/update-docs-assets.ts",
+    "build:docs": "yarn build && yarn update:docs",
+    
+    "package:dist": "tsx _scripts/package-assets.ts",
+    "build:package": "yarn build:docs && yarn package:dist",
+
     "build:jekyll": "jekyll build",
     "modify:html": "node _scripts/modify-html.js",
     "build-modify:jekyll": "yarn build:jekyll && yarn modify:html",
