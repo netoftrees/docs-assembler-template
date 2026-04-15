@@ -3,9 +3,9 @@
     "contact": "team@netoftrees.com",
     "gitConfig": {
         "owner": "netoftrees",
-        "repo": "docs-assembler-help",
+        "repo": "docs-assembler-template",
         "branch": "main",
-        "publishUrl": "https://netoftrees.github.io/docs-assembler-help/"
+        "publishUrl": "https://netoftrees.github.io/docs-assembler-template/"
     },
     "repoConfig": {
         "assetFolderName": "δ steps",
