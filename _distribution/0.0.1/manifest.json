@@ -1,10 +1,10 @@
 {
   "version": "0.0.1",
   "name": "docs-assembler-assets",
-  "generatedAt": "2026-04-15T21:25:39.607Z",
+  "generatedAt": "2026-04-15T22:53:54.894Z",
   "zipName": "docs-assembler-assets.zip",
-  "zipSize": 239906,
-  "fileCount": 17,
+  "zipSize": 240324,
+  "fileCount": 18,
   "routing": {
     "docs/": "{docsFolder}/",
     "tsmaps/": "tsmaps/",

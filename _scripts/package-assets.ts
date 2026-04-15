@@ -65,7 +65,9 @@ async function countFiles(dir: string): Promise<number> {
 
 async function main() {
   // Read source manifest
-  const manifestPath = path.join(ROOT, '_distribution', 'distribution.json');
+  const STAGE_DIR = path.join(ROOT, '.staging');
+  const DIST_DIR = path.join(ROOT, '_distribution');
+  const manifestPath = path.join(DIST_DIR, 'distribution.json');
   const manifest: DistributionManifest = JSON.parse(
     await fs.readFile(manifestPath, 'utf8')
   );
@@ -77,13 +79,11 @@ async function main() {
   console.log('\n🔨 Running vite build...');
   execSync('vite build', { cwd: ROOT, stdio: 'inherit' });
 
-  // Get package version (can be overridden in manifest or use package.json)
+  // Get package version
   const pkgPath = path.join(ROOT, 'package.json');
   const pkg = JSON.parse(await fs.readFile(pkgPath, 'utf8'));
   const version = pkg.version;
 
-  const STAGE_DIR = path.join(ROOT, '.staging');
-  const DIST_DIR = path.join(ROOT, '_distribution');
 
   // Clean staging
   console.log('\n📦 Preparing staging area...');
@@ -112,6 +112,11 @@ async function main() {
     }
   }
 
+  // Copy distribution.json into the zip (so extension can read it)
+  const distributionInZip = path.join(STAGE_DIR, 'distribution.json');
+  await fs.copyFile(manifestPath, distributionInZip);
+  console.log(`   ✓ distribution.json -> distribution.json (packaged)`);
+
   // Create distribution directories
   const versionDir = path.join(DIST_DIR, version);
   const latestDir = path.join(DIST_DIR, 'latest');
@@ -131,7 +136,7 @@ async function main() {
   await fs.copyFile(versionZip, latestZip);
   await fs.copyFile(versionZip, rootZip);
 
-  // Generate output manifest for extension to read
+  // Generate output manifest (manifest.json) for extension
   const fileCount = await countFiles(STAGE_DIR);
   const zipStats = await fs.stat(latestZip);
   
@@ -160,13 +165,12 @@ async function main() {
 
   // Clean staging
   console.log('\n🧹 Cleaning up...');
-  // await fs.rm(STAGE_DIR, { recursive: true, force: true });
+  await fs.rm(STAGE_DIR, { recursive: true, force: true });
 
   console.log('\n✅ Complete!');
   console.log(`   Version: ${version}`);
-  console.log(`   Files: ${fileCount}`);
+  console.log(`   Files: ${fileCount} (including distribution.json)`);
   console.log(`   Size: ${(zipStats.size / 1024).toFixed(1)} KB`);
-  console.log(`   Update distribution.json version when you change contents`);
 }
 
 main().catch(err => {

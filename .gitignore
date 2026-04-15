@@ -12,6 +12,7 @@ dist/
 /.vs/
 
 /.cache/
+/.staging/
 
 /build/
 pub/
