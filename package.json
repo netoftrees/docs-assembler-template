@@ -16,7 +16,9 @@
     "build-modify:jekyll-dev": "yarn build:jekyll && yarn modify:html && vite"
   },
   "devDependencies": {
+    "@types/archiver": "^7.0.0",
     "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "archiver": "^7.0.1",
     "sass": "*",
     "timing-object": "^3.1.96",
     "tsx": "^4.21.0",
