@@ -1,0 +1,37 @@
+{
+  "name": "docs-assembler-help",
+  "version": "0.0.1",
+  "author": "netoftrees",
+  "type": "module",
+  "scripts": {
+    "ck": "tsc --noEmit",
+    "dev": "vite",
+    "build": "tsc && vite build --mode production",
+    "min-build": "tsc && npx vite build --config vite-min.config.js",
+    "serve": "vite preview --port 1223",
+    "build:jekyll": "jekyll build",
+    "modify:html": "node modify-html.js",
+    "build-modify:jekyll": "yarn build:jekyll && yarn modify:html",
+    "build-modify:jekyll-dev": "yarn build:jekyll && yarn modify:html && vite"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "sass": "*",
+    "timing-object": "^3.1.96",
+    "typescript": "^5.9.3",
+    "vite": "*",
+    "vite-plugin-mkcert": "^1.16.0",
+    "vite-plugin-static-copy": "^2.3.0",
+    "yarn": "^1.22.22"
+  },
+  "dependencies": {
+    "@vimeo/player": "^2.30.2",
+    "concurrently": "^9.2.1",
+    "jsdom": "^26.1.0"
+  },
+  "volta": {
+    "node": "24.12.0",
+    "yarn": "1.22.22",
+    "typescript": "5.9.3"
+  }
+}
