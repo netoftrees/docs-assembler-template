@@ -1,57 +1,71 @@
 {
-  "version": "1.0.0",
-  "name": "docs-assembler-assets",
-  "contents": [
-    {
-      "source": "build/assets",
-      "dest": "docs/assets/FragmentRenderer",
-      "type": "directory"
-    },
-    {
-      "source": "docs/_includes",
-      "dest": "docs/_includes",
-      "type": "directory"
-    },
-    {
-      "source": "docs/_layouts",
-      "dest": "docs/_layouts",
-      "type": "directory"
-    },
-    {
-      "source": "docs/assets/images",
-      "dest": "docs/assets/images",
-      "type": "directory"
-    },
-    {
-      "source": "docs/assets/scss",
-      "dest": "docs/assets/scss",
-      "type": "directory"
-    },
-    {
-      "source": "docs/_config.yml",
-      "dest": "docs/_config.yml",
-      "type": "file"
-    },
-    {
-      "source": "docs/404.html",
-      "dest": "docs/404.html",
-      "type": "file"
-    },
-    {
-      "source": ".templates",
-      "dest": ".templates",
-      "type": "directory"
-    },
-    {
-      "source": ".gitattributes",
-      "dest": "root/.gitattributes",
-      "type": "file"
+    "version": "1.0.0",
+    "name": "docs-assembler-assets",
+    "contents": [
+        {
+            "source": "build/assets",
+            "dest": "docs/assets/FragmentRenderer",
+            "type": "directory",
+            "strategy": "cleanOverwrite",
+            "description": "Built JS/CSS — always replace entirely"
+        },
+        {
+            "source": "docs/_includes",
+            "dest": "docs/_includes",
+            "type": "directory",
+            "strategy": "overwrite"
+        },
+        {
+            "source": "docs/_layouts",
+            "dest": "docs/_layouts",
+            "type": "directory",
+            "strategy": "overwrite"
+        },
+        {
+            "source": "docs/assets/images",
+            "dest": "docs/assets/images",
+            "type": "directory",
+            "strategy": "skipIfExists",
+            "description": "Static images — don't overwrite user customizations"
+        },
+        {
+            "source": "docs/assets/scss",
+            "dest": "docs/assets/scss",
+            "type": "directory",
+            "strategy": "overwrite"
+        },
+        {
+            "source": "docs/_config.yml",
+            "dest": "docs/_config.yml",
+            "type": "file",
+            "strategy": "skipIfExists",
+            "description": "Jekyll config — user may customize"
+        },
+        {
+            "source": "docs/404.html",
+            "dest": "docs/404.html",
+            "type": "file",
+            "strategy": "overwrite"
+        },
+        {
+            "source": ".templates",
+            "dest": ".templates",
+            "type": "directory",
+            "strategy": "skipIfExists",
+            "description": "Custom templates — only on first init"
+        },
+        {
+            "source": ".gitattributes",
+            "dest": "root/.gitattributes",
+            "type": "file",
+            "strategy": "merge",
+            "mergeType": "appendUnique",
+            "description": "Append new patterns to existing .gitattributes"
+        }
+    ],
+    "routing": {
+        "docs/": "{docsFolder}/",
+        ".templates/": ".templates/",
+        "root/": ""
     }
-  ],
-  "routing": {
-    "docs/": "{docsFolder}/",
-    "tsmaps/": "tsmaps/",
-    ".templates/": ".templates/",
-    "root/": ""
-  }
 }

@@ -1,20 +1,9 @@
-node_modules
-dist
-dist-ssr
-build-ssr
-*.local
-public
-
+node_modules/
 dist/
-
-/zz temp/
-
-/.vs/
-
-/.cache/
-/.staging/
-
-/build/
+.cache/
+.staging/
+out/
+build/
 pub/
 .bin/
 
