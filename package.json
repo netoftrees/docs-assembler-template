@@ -1,6 +1,6 @@
 {
   "name": "docs-assembler-help",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "author": "netoftrees",
   "type": "module",
   "scripts": {
@@ -15,6 +15,8 @@
     
     "package:dist": "tsx _scripts/package-assets.ts",
     "build:package": "yarn build:docs && yarn package:dist",
+
+    "release:package": "yarn build:package && tsx _scripts/release.ts",
 
     "build:jekyll": "jekyll build",
     "modify:html": "node _scripts/modify-html.js",
