@@ -22,7 +22,7 @@ const parseGuide = (rawGuide: any): IRenderGuide => {
     return guide;
 };
 
-const parseRender7Comment = (
+const parseRender8Comment = (
     state: IState,
     raw: any
 ): void => {
@@ -162,7 +162,7 @@ const gRenderCode = {
         }
     },
 
-    parseRender7Comment: (state: IState) => {
+    parseRender8Comment: (state: IState) => {
 
         if (!window.TreeSolve?.renderingComment) {
             return;
@@ -179,7 +179,7 @@ const gRenderCode = {
             guideRenderComment = guideRenderComment.substring(gFileConstants.guideRenderCommentTag.length);
             const raw = JSON.parse(guideRenderComment);
 
-            parseRender7Comment(
+            parseRender8Comment(
                 state,
                 raw
             );

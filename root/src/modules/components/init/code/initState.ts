@@ -17,7 +17,7 @@ const initialiseState = (): IState => {
     }
 
     const state: IState = new State();
-    gRenderCode.parseRender7Comment(state);
+    gRenderCode.parseRender8Comment(state);
 
     return state;
 };
