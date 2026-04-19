@@ -13,26 +13,26 @@
             "source": "docs/_includes",
             "dest": "docs/_includes",
             "type": "directory",
-            "strategy": "overwrite"
+            "strategy": "addOnly"
         },
         {
             "source": "docs/_layouts",
             "dest": "docs/_layouts",
             "type": "directory",
-            "strategy": "overwrite"
+            "strategy": "addOnly"
         },
         {
             "source": "docs/assets/images",
             "dest": "docs/assets/images",
             "type": "directory",
-            "strategy": "skipIfExists",
+            "strategy": "addOnly",
             "description": "Static images — don't overwrite user customizations"
         },
         {
             "source": "docs/assets/scss",
             "dest": "docs/assets/scss",
             "type": "directory",
-            "strategy": "overwrite"
+            "strategy": "addOnly"
         },
         {
             "source": "docs/_config.yml",
@@ -45,7 +45,7 @@
             "source": "docs/404.html",
             "dest": "docs/404.html",
             "type": "file",
-            "strategy": "overwrite"
+            "strategy": "skipIfExists"
         },
         {
             "source": ".templates",
@@ -59,8 +59,16 @@
             "dest": "root/.gitattributes",
             "type": "file",
             "strategy": "merge",
-            "mergeType": "appendUnique",
+            "mergeType": "lineByLine",
             "description": "Append new patterns to existing .gitattributes"
+        },
+        {
+            "source": ".gitignore",
+            "dest": "root/.gitignore",
+            "type": "file",
+            "strategy": "merge",
+            "mergeType": "lineByLine",
+            "description": "Append new patterns to existing .gitignore"
         }
     ],
     "routing": {
