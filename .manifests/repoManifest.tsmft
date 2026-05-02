@@ -1,0 +1,11 @@
+{
+    "migrations": {
+        "lastDocsAssemblerVersion": "0.8.244",
+        "migrations": [
+            "0.8.0"
+        ]
+    },
+    "resources": {
+        "version": ""
+    }
+}

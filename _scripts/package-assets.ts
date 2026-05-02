@@ -24,6 +24,11 @@ interface SourceManifest {
         description?: string;
     }>;
     routing: Record<string, string>;
+    referenceUpdate?: {
+        enabled?: boolean;
+        scanExtensions?: string[];
+        scanPath?: string;
+    };
 }
 
 interface InternalManifest {
@@ -31,6 +36,11 @@ interface InternalManifest {
     name: string;
     generatedAt: string;
     routing: Record<string, string>;
+    referenceUpdate?: {
+        enabled?: boolean;
+        scanExtensions?: string[];
+        scanPath?: string;
+    };
     files: Array<{
         path: string;
         strategy: Strategy;
@@ -299,6 +309,7 @@ async function main() {
         name: manifest.name,
         generatedAt: new Date().toISOString(),
         routing: manifest.routing,
+        referenceUpdate: manifest.referenceUpdate,
         files: []
     };
 

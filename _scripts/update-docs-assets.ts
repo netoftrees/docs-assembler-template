@@ -72,10 +72,15 @@ async function updateReferences(
             '\\.'
         );
 
+        const escapedBase = asset.baseName.replace(
+            /[.*+?^${}()|[\]\\]/g,
+            '\\$&'
+        );
+
         // Match: baseName.<any-hash>.ext OR baseName.ext
         // Uses \b (word boundary) to avoid partial matches inside other names
         const regex = new RegExp(
-            `\\b(${asset.baseName})(?:\\.[a-zA-Z0-9_-]+)?(${escapedExt})\\b`,
+            `\\b(${escapedBase})(?:\\.[a-zA-Z0-9_-]+)?(${escapedExt})\\b`,
             'g'
         );
 

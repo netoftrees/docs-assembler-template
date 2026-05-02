@@ -75,5 +75,10 @@
         "docs/": "{docsFolder}/",
         ".templates/": ".templates/",
         "root/": ""
+    },
+    "referenceUpdate": {
+        "enabled": true,
+        "scanExtensions": [".html", ".md", ".yml", ".yaml", ".json", ".css", ".scss", ".js", ".tstml", ".txt"],
+        "scanPath": "docs/"
     }
 }
