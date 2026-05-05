@@ -448,6 +448,14 @@ body {
   background-color: transparent;
   vertical-align: top;
 }
+#treeSolve .nt-tp-iframe-video-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+#treeSolve .nt-tp-video-view {
+  position: relative;
+}
 
 @media (max-width: 1600px) {
   #treeSolve #treeSolveFragments .nt-fr-ancillary-box {

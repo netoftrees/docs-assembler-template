@@ -617,6 +617,16 @@ body {
         background-color: transparent;
         vertical-align: top;
     }
+
+    .nt-tp-iframe-video-box {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+    .nt-tp-video-view {
+        position: relative;
+    }
 }
 
 @media (max-width: 1600px) {
@@ -709,14 +719,14 @@ body {
     #boxOuter.show-sidebar .hamburger div:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -4.5px);
     }
-    
+
     #treeSolve #treeSolveFragments .nt-fr-ancillary-box {
         margin-left: 100px;
     }
 }
 
 @media (max-width: 700px) {
-    
+
     #treeSolve #treeSolveFragments .nt-fr-ancillary-box {
         margin-left: 50px;
     }
