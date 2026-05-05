@@ -1,34 +1,15 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
 <head>
   <base href="/docs-assembler-help/" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   <title>
-    {% if page.title %}
-    {{ page.title }}
-    {% elsif page.content | strip_html | strip_newlines | size > 0 %}
-    {% assign first_content = page.content %}
-    {% if first_content contains "<h1>" or first_content contains "<h2>" or first_content contains "<h3>" or
-          first_content contains "<h4>" or first_content contains "<h5>" or first_content contains "<h6>" %}
-                {% if first_content contains "<h1>" %}
-                  {{ first_content | split: "</h1>" | first | split: "<h1>" | last | strip_html | strip }}
-                  {% elsif first_content contains "<h2>" %}
-                    {{ first_content | split: "</h2>" | first | split: "<h2>" | last | strip_html | strip }}
-                    {% elsif first_content contains "<h3>" %}
-                      {{ first_content | split: "</h3>" | first | split: "<h3>" | last | strip_html | strip }}
-                      {% elsif first_content contains "<h4>" %}
-                        {{ first_content | split: "</h4>" | first | split: "<h4>" | last | strip_html | strip }}
-                        {% elsif first_content contains "<h5>" %}
-                          {{ first_content | split: "</h5>" | first | split: "<h5>" | last | strip_html | strip }}
-                          {% elsif first_content contains "<h6>" %}
-                            {{ first_content | split: "</h6>" | first | split: "<h6>" | last | strip_html | strip }}
-                            {% endif %}
-                            {% else %}
-                            {{ site.title }}
-                            {% endif %}
-                            {% else %}
-                            {{ site.title }}
-                            {% endif %}
+    
+    404: Page not found
+    
   </title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon-8d2239d4.png" />
@@ -40,7 +21,7 @@
   <link rel="shortcut icon" href="assets/images/favicon-4e1f1aa6.ico" />
   <meta name="theme-color" content="#ffffff" />
 
-  <link rel="stylesheet" href="{{ 'assets/scss/hyde.css' }}">
+  <link rel="stylesheet" href="assets/scss/hyde.css">
 
   <link href="https://fonts.googleapis.com/css?family=Poppins: 200,200i,300,300i,400,400i,500,500i,600,700"
     rel="stylesheet" />
@@ -50,3 +31,90 @@
   <link rel="modulepreload" crossorigin href="assets/FragmentRenderer/guide.Dmr2lzPN.js">
   <link rel="stylesheet" crossorigin href="assets/FragmentRenderer/guide.40n3AlVq.css">
 </head>
+
+<body>
+  <div class="box-outer" id="boxOuter">
+    <div class="box-inner">
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <aside class="sidebar" id="sidebar">
+    <div class="sidebar-about">
+        <h1>
+            <a href="https://marketplace.visualstudio.com/items?itemName=netoftrees.documentation-assembler">
+                Docs Assembler Demo
+            </a>
+        </h1>
+        <h4>Build documentation like Lego</h4>
+        <ul>
+            <li>Capture complex thinking</li>
+            <li>Simplify intricate systems</li>
+            <li>Inspired by code classes</li>
+        </ul>
+        <div class="sidebar-about-notes">
+            <p>This site is built with
+                <a href="https://marketplace.visualstudio.com/items?itemName=netoftrees.documentation-assembler">Docs
+                    Assembler</a>
+                and is hosted on
+                <a href="https://docs.github.com/en/pages">GitHub Pages</a>.
+            </p>
+            <h6>You can view the files here:</h6>
+            <ul>
+                <li><a href="https://github.com/CompositeFlows/DocsAssemblerDemo">Docs Assembler Demo repo</a></li>
+                <li><a href="https://github.com/CompositeFlows/DocsAssemblerDemoSandbox">Docs Assembler Demo Sandbox
+                    repo</a></li>
+            </ul>
+        </div>
+    </div>
+</aside>
+
+      
+      
+      
+      
+      
+      
+      
+
+      <div class="main-content 404.html">
+
+        
+
+
+        <main>
+
+          <div id="treeSolve">
+            <div id="treeSolveGuide">
+
+              <div class="page">
+  <h1 class="page-title">404: Page not found</h1>
+  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="https://MuddySpud.github.io">Head back home</a> to try finding it again.</p>
+</div>
+
+
+            </div>
+            <div id="treeSolveFragments"></div>
+          </div>
+
+        </main>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+<noscript>You need to enable JavaScript to run this app.</noscript>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const boxOuter = document.getElementById('boxOuter');
+
+  hamburger.addEventListener('click', () => {
+    boxOuter.classList.toggle('show-sidebar');
+  });
+</script>
+
+</html>
