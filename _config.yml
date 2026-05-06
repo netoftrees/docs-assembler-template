@@ -1,10 +1,13 @@
 # Permalinks
 permalink: pretty
 
-# Setup
-title: Docs Assembler demo guide
+title: Docs Assembler template guide
+
+# For Docs Assembler
 markdown_ext: markdown,tsfrg,tsgde,md
 source: docs
+
+# For Degging locally
 destination: root/_site
 sass:
   sass_dir: docs/assets/scss
@@ -23,9 +26,3 @@ disable_disk_cache: true
 # Or more specific cache controls
 full_rebuild: true
 
-# remove !!!!!!!!!!!!
-webrick:
-  headers:
-    Access-Control-Allow-Origin: "*"
-
-    

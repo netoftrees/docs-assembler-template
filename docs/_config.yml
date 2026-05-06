@@ -1,10 +1,13 @@
 # Permalinks
 permalink: pretty
 
-# Setup
 title: Docs Assembler demo guides
+
+# For Docs Assembler
 markdown_ext: markdown,tsfrg,tsgde,md
 
+
+# For Docs Assembler
 defaults:
   - scope:
       path: "" # Empty string for all files
@@ -17,9 +20,3 @@ disable_disk_cache: true
 # Or more specific cache controls
 full_rebuild: true
 
-# remove !!!!!!!!!!!!
-webrick:
-  headers:
-    Access-Control-Allow-Origin: "*"
-
-    
