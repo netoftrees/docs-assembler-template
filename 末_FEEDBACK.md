@@ -2,40 +2,40 @@
 
 ## Repo initialized
 
-Your documentation workspace is ready.
+> Your documentation workspace is ready.
 
 <br>
 <br>
 
 # Feedback
 
-## We can't see you
+### We can't see you
 
-We collect no analytics, usage data, or crash reports.  
-We cannot see your downloads, your location, or how you use this tool.
-
-
-
-## Why we're asking
-
-Because we genuinely cannot tell if anyone is using this.  
-If Docs Assembler helps you, we only know if you tell us.
+- We collect no analytics, usage data, or crash reports.  
+- We cannot see your downloads, your location, or how you use this tool.
 
 
 
-## What you get
+### Why we're asking
 
-**Direct help**  
-Email us your docs architecture problem. We'll model it with you.
+- Because we genuinely cannot tell if anyone is using this.  
+- If Docs Assembler helps you, we only know if you tell us.
 
-**Shape the roadmap**  
-Your top feature request may ship in the next release.
 
-**Showcase your work**  
+
+### What you get
+
+> **Direct help**  
+> Email us your docs architecture problem. We'll model it with you.
+
+> **Shape the roadmap**  
+> Your top feature request may ship in the next release.
+
+> **Showcase your work**  
 Selected documentation projects featured on our demo site.
 
-**Early stable access**  
-Be the first to know when the warning banner comes off.
+> **Early stable access**  
+> Be the first to know when the warning banner comes off.
 
 <br>
 
@@ -69,33 +69,33 @@ Be the first to know when the warning banner comes off.
 
 # 反馈
 
-## 我们看不到您
+### 我们看不到您
 
-我们不收集分析数据、使用情况或崩溃报告。  
-我们看不到您的下载量、位置或使用方式。
-
-
-
-## 为什么请求反馈
-
-因为我们真的无法判断是否有人在用。  
-如果此工具对您有用，只有您告诉我们，我们才知道。
+- 我们不收集分析数据、使用情况或崩溃报告。  
+- 我们看不到您的下载量、位置或使用方式。
 
 
 
-## 回馈
+### 为什么请求反馈
 
-**直接帮助**  
-遇到文档架构难题？发邮件给我们，一起建模。
+- 因为我们真的无法判断是否有人在用。  
+- 如果此工具对您有用，只有您告诉我们，我们才知道。
 
-**决定功能方向**  
-您的功能建议可能直接入选下一版。
 
-**展示您的项目**  
-入选案例将在演示站点展示。
 
-**稳定版优先体验**  
-警告横幅移除后第一时间通知您。
+### 回馈
+
+> **直接帮助**  
+> 遇到文档架构难题？发邮件给我们，一起建模。
+
+> **决定功能方向**  
+> 您的功能建议可能直接入选下一版。
+
+> **展示您的项目**  
+> 入选案例将在演示站点展示。
+
+> **稳定版优先体验**  
+> 警告横幅移除后第一时间通知您。
 
 <br>
 
