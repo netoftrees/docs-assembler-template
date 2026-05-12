@@ -69,6 +69,13 @@
             "strategy": "merge",
             "mergeType": "lineByLine",
             "description": "Append new patterns to existing .gitignore"
+        },
+        {
+            "source": "末_FEEDBACK.md",
+            "dest": "root/末_FEEDBACK.md",
+            "type": "file",
+            "strategy": "skipIfExists",
+            "description": "Repository initialisation confirmation + feedback"
         }
     ],
     "routing": {
@@ -78,7 +85,18 @@
     },
     "referenceUpdate": {
         "enabled": true,
-        "scanExtensions": [".html", ".md", ".yml", ".yaml", ".json", ".css", ".scss", ".js", ".tstml", ".txt"],
+        "scanExtensions": [
+            ".html",
+            ".md",
+            ".yml",
+            ".yaml",
+            ".json",
+            ".css",
+            ".scss",
+            ".js",
+            ".tstml",
+            ".txt"
+        ],
         "scanPath": "docs/"
     }
 }
