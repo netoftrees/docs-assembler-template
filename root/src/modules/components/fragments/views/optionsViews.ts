@@ -536,7 +536,8 @@ const optionsViews = {
 
         if (!fragment.options
             || fragment.options.length === 0
-            || !U.isNullOrWhiteSpace(fragment.iKey) // Don't draw options of links
+            || !U.isNullOrWhiteSpace(fragment.iKey) // Don't draw options of map links
+            || fragment.gPath // Don't draw options of remote guide links
         ) {
             return {
                 views: [],
@@ -597,6 +598,7 @@ const optionsViews = {
         if (!fragment.options
             || fragment.options.length === 0
             || !U.isNullOrWhiteSpace(fragment.iKey) // Don't draw options of links
+            || fragment.gPath // Don't draw options of remote guide links
         ) {
             return;
         }

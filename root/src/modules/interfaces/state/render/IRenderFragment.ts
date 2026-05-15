@@ -1,6 +1,7 @@
 import IDisplayChart from "../display/IDisplayChart";
 import IDisplaySection from "../display/IDisplaySection";
 import IRenderFragmentUI from "../ui/IRenderFragmentUI";
+import IRenderGuidePath from "./IRenderGuidePath";
 
 
 export default interface IRenderFragment {
@@ -22,6 +23,7 @@ export default interface IRenderFragment {
     options: Array<IRenderFragment>;
     variable: Array<[string] | [string, string]>;
     classes: Array<string>;
+    gPath: IRenderGuidePath | null;
 
     option: string;
     isAncillary: boolean;

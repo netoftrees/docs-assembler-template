@@ -1,6 +1,7 @@
 import IDisplayChart from "../../interfaces/state/display/IDisplayChart";
 import IDisplaySection from "../../interfaces/state/display/IDisplaySection";
 import IRenderFragment from "../../interfaces/state/render/IRenderFragment";
+import IRenderGuidePath from "../../interfaces/state/render/IRenderGuidePath";
 import IRenderFragmentUI from "../../interfaces/state/ui/IRenderFragmentUI";
 import RenderFragmentUI from "../ui/RenderFragmentUI";
 
@@ -36,6 +37,7 @@ export default class RenderFragment implements IRenderFragment {
     public options: Array<IRenderFragment> = [];
     public variable: Array<[string] | [string, string]> = [];
     public classes: Array<string> = [];
+    public gPath: IRenderGuidePath | null = null;
 
     public option: string = '';
     public isAncillary: boolean = false;

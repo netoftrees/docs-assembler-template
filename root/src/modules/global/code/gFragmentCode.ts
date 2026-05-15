@@ -852,6 +852,17 @@ const gFragmentCode = {
         // fragment.ui.discussionLoaded = true;
         fragment.ui.doNotPaint = false;
 
+        if (rawFragment.gPath) {
+
+            fragment.gPath = {
+                guidePath: rawFragment.gPath.guidePath,
+                bankUrl: rawFragment.gPath.bankUrl,
+            }
+        }
+        else {
+            fragment.gPath = null;
+        }
+
         checkForVariables(
             fragment,
         );
