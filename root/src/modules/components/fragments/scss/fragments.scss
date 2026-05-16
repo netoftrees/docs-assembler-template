@@ -331,16 +331,6 @@ body {
                 z-index: 1000;
             }
 
-            blockquote {
-                color: #e6e6e6;
-                border-color: #1f3e5b;
-            }
-
-            h2+h3
-            h3+h4 {
-                margin-top: 1.5rem;
-            }
-
             .nt-fr-ancillary-box {
                 padding-left: 0;
                 padding-right: 0;
@@ -646,6 +636,15 @@ body {
 
     code {
         color: #61bf97;
+    }
+
+    blockquote {
+        color: #e6e6e6;
+        border-color: #326696;
+    }
+
+    h2+h3 h3+h4 {
+        margin-top: 1.5rem;
     }
 
     .nt-tp-iframe-video-box {
