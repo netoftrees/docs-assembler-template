@@ -467,6 +467,12 @@ body {
   color: #e6e6e6;
   border-color: #326696;
 }
+#treeSolve hr {
+  border-top: 1px solid #326696;
+  border-bottom-style: none;
+  width: calc(100% - 20px);
+  margin: 3rem 0 1rem 0;
+}
 #treeSolve h2 + h3,
 #treeSolve h3 + h4 {
   margin-top: 1.5rem;
