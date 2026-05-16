@@ -643,7 +643,8 @@ body {
         border-color: #326696;
     }
 
-    h2+h3 h3+h4 {
+    h2+h3,
+    h3+h4 {
         margin-top: 1.5rem;
     }
 
