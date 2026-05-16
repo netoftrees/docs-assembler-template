@@ -247,6 +247,13 @@ body {
   margin-bottom: -30px;
   z-index: 1000;
 }
+#treeSolve #treeSolveFragments .nt-fr-ancillary-box blockquote {
+  color: #e6e6e6;
+  border-color: #1f3e5b;
+}
+#treeSolve #treeSolveFragments .nt-fr-ancillary-box h2 + h3 h3 + h4 {
+  margin-top: 1.5rem;
+}
 #treeSolve #treeSolveFragments .nt-fr-ancillary-box .nt-fr-ancillary-box {
   padding-left: 0;
   padding-right: 0;
