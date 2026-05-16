@@ -643,6 +643,13 @@ body {
         border-color: #326696;
     }
 
+    hr {
+        border-top: 1px solid #326696;
+        border-bottom-style: none;
+        width: calc(100% - 20px);
+        margin: 3rem 0 1rem 0;
+    }
+
     h2+h3,
     h3+h4 {
         margin-top: 1.5rem;
