@@ -431,6 +431,8 @@ body {
   font-size: 14px;
   font-weight: 300;
   color: #e6e6e6;
+  margin: 30px 0;
+  width: calc(100% - 20px);
 }
 #treeSolve thead {
   border: none;
@@ -442,11 +444,24 @@ body {
 #treeSolve th {
   border: none;
   background-color: transparent;
+  border-width: 1px;
+  border-style: solid none solid none;
+  border-color: rgba(255, 255, 255, 0.7);
+  text-align: left;
 }
 #treeSolve td {
   border: none;
   background-color: transparent;
   vertical-align: top;
+  border-bottom-style: solid;
+  border-color: rgba(255, 255, 255, 0.2);
+  border-width: 1px;
+}
+#treeSolve pre code {
+  color: #a4cac1;
+}
+#treeSolve code {
+  color: #61bf97;
 }
 #treeSolve .nt-tp-iframe-video-box {
   position: relative;
