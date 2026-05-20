@@ -21,7 +21,7 @@ function run(cmd: string, cwd: string = ROOT): string {
 
 async function main() {
 
-    // Read version from package.json
+    // Read resourcesVersion from package.json
     const pkgPath = path.join(
         ROOT,
         'package.json'
@@ -33,8 +33,8 @@ async function main() {
     );
 
     const pkg = JSON.parse(pkgJson);
-    const version = pkg.version;
-    const tag = `v${version}`;
+    const resourcesVersion = pkg.resourcesVersion;
+    const tag = `v${resourcesVersion}`;
 
     console.log(`🚀 Releasing ${tag}...`);
 
@@ -65,7 +65,7 @@ async function main() {
         run(`git rev-parse ${tag}`);
 
         console.error(`❌ Tag ${tag} already exists.`);
-        console.error('   Bump version in package.json if you want a new release.');
+        console.error('   Bump resourcesVersion in package.json if you want a new release.');
 
         process.exit(1);
     }
@@ -108,7 +108,7 @@ async function main() {
     run(`git push origin ${tag}`);
 
     console.log('\n✅ Released!');
-    console.log(`   Version: ${version}`);
+    console.log(`   Version: ${resourcesVersion}`);
     console.log(`   Tag:     ${tag}`);
     console.log(`   Branch:  ${branch}`);
     console.log(`\n   jsDelivr URLs will be available in ~1 minute:`);

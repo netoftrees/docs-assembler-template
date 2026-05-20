@@ -1,0 +1,32 @@
+{
+  "extension": {
+    "minimumVersion": "0.9.0",
+    "latestVersion": "0.9.26",
+    "updateUrl": "https://open-vsx.org/extension/netoftrees/documentation-assembler",
+    "messages": {
+      "en": "A new version of the Docs Assembler extension is available. Please update to access the latest features.",
+      "zh": "文档组装器扩展有新版本可用。请更新以访问最新功能。"
+    }
+  },
+  "resources": {
+    "minimumVersion": "0.0.23",
+    "latestVersion": "0.0.25",
+    "latestTag": "v0.0.25",
+    "changeLog": {
+      "0.0.25": {
+        "en": ["Fixed: ancillaries css: table, hr"],
+        "zh": ["修复：ancillaries CSS：表格、水平线"]
+      }
+    },
+    "messages": {
+      "updateAvailable": {
+        "en": "New documentation resources available (v{version}). Update now?",
+        "zh": "有新的文档资源可用 (v{version})。立即更新？"
+      },
+      "updateRequired": {
+        "en": "Your documentation resources are outdated (v{current} → v{required}). Update required for compatibility.",
+        "zh": "您的文档资源已过期 (v{current} → v{required})。需要更新以保持兼容性。"
+      }
+    }
+  }
+}

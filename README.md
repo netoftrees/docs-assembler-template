@@ -5,7 +5,7 @@ www.netoftrees.com/docs-assembler-help
 
 ## Works With Docs Assembler 0.8.1
 
-To run this repo you need [VS Code](https://code.visualstudio.com/download) with the [Docs Assembler](https://marketplace.visualstudio.com/items?itemName=netoftrees.documentation-assembler) extension installed.
+To run this repo you need [VS Code](https://code.visualstudio.com/download) with the [Docs Assembler](https://open-vsx.org/extension/netoftrees/documentation-assembler) extension installed.
 
 The markdown files that GitHub Pages uses are in `docs`
 Maps are stored in `tsmaps`.

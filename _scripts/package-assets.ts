@@ -229,7 +229,7 @@ async function main() {
     );
 
     const pkg = JSON.parse(packageJson);
-    const version = pkg.version;
+    const resourcesVersion = pkg.resourcesVersion;
 
     const stageDir = path.join(
         ROOT,
@@ -305,7 +305,7 @@ async function main() {
 
 
     const internalManifest: InternalManifest = {
-        version,
+        version: resourcesVersion,
         name: manifest.name,
         generatedAt: new Date().toISOString(),
         routing: manifest.routing,
@@ -381,7 +381,7 @@ async function main() {
 
     const versionDir = path.join(
         distDir,
-        version
+        resourcesVersion
     );
 
     const latestDir = path.join(
@@ -389,7 +389,7 @@ async function main() {
         'latest'
     );
 
-    // ─── Guard against overwriting version history ───
+    // ─── Guard against overwriting resourcesVersion history ───
     const versionExists = await fs
         .access(versionDir)
         .then(() => true)
@@ -397,9 +397,9 @@ async function main() {
 
     if (versionExists) {
 
-        console.error(`\n❌ Version folder already exists: _distribution/${version}`);
+        console.error(`\n❌ Version folder already exists: _distribution/${resourcesVersion}`);
         console.error('   Version history cannot be overwritten.');
-        console.error(`   Delete _distribution/${version} first if you want to rebuild this version.`);
+        console.error(`   Delete _distribution/${resourcesVersion} first if you want to rebuild this resourcesVersion.`);
 
         process.exit(1);
     }
@@ -448,7 +448,7 @@ async function main() {
         .digest('hex');
 
     const externalManifest: ExternalManifest = {
-        version,
+        version: resourcesVersion,
         name: manifest.name,
         generatedAt: new Date().toISOString(),
         zipName,
@@ -489,7 +489,7 @@ async function main() {
     );
 
     console.log('\n✅ Done');
-    console.log(`   Version: ${version}`);
+    console.log(`   Version: ${resourcesVersion}`);
     console.log(`   Files: ${fileCount}`);
     console.log(`   Zip: ${(zipBuffer.length / 1024).toFixed(1)} KB`);
     console.log(`   Zip hash: ${zipHash}`);
