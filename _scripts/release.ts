@@ -70,7 +70,7 @@ async function main() {
         process.exit(1);
     }
     catch {
-        // Tag doesn't exist — good
+        // Tag doesn't exist - good
     }
 
     // Check if _distribution/ has anything to commit

@@ -7,7 +7,7 @@
             "dest": "docs/assets/FragmentRenderer",
             "type": "directory",
             "strategy": "cleanOverwrite",
-            "description": "Built JS/CSS — always replace entirely"
+            "description": "Built JS/CSS - always replace entirely"
         },
         {
             "source": "docs/_includes",
@@ -26,7 +26,7 @@
             "dest": "docs/assets/images",
             "type": "directory",
             "strategy": "addOnly",
-            "description": "Static images — don't overwrite user customizations"
+            "description": "Static images - don't overwrite user customizations"
         },
         {
             "source": "docs/assets/scss",
@@ -39,7 +39,7 @@
             "dest": "docs/_config.yml",
             "type": "file",
             "strategy": "skipIfExists",
-            "description": "Jekyll config — user may customize"
+            "description": "Jekyll config - user may customize"
         },
         {
             "source": "docs/404.html",
@@ -52,7 +52,7 @@
             "dest": ".templates",
             "type": "directory",
             "strategy": "skipIfExists",
-            "description": "Custom templates — only on first init"
+            "description": "Custom templates - only on first init"
         },
         {
             "source": ".gitattributes",

@@ -21,7 +21,7 @@ const domPurifyConfig = {
         // Tables (safe)
         'caption', 'col', 'colgroup', 'table', 'tbody', 'td', 'tfoot', 'th', 'thead', 'tr',
 
-        // Media — img is safe IF you sanitize src
+        // Media - img is safe IF you sanitize src
         'img',
 
         // Links
@@ -43,7 +43,7 @@ const domPurifyConfig = {
         'aria-label', 'aria-hidden', 'aria-expanded', 'aria-controls',
         'aria-describedby', 'aria-labelledby',
 
-        // Links — HREF is the danger point
+        // Links - HREF is the danger point
         'href', 'target', 'rel',
 
         // Images
