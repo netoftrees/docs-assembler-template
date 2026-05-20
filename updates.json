@@ -1,7 +1,7 @@
 {
   "extension": {
-    "minimumVersion": "0.9.0",
-    "latestVersion": "0.9.26",
+    "minimumVersion": "0.9.24",
+    "latestVersion": "0.9.30",
     "updateUrl": "https://open-vsx.org/extension/netoftrees/documentation-assembler",
     "messages": {
       "en": "A new version of the Docs Assembler extension is available. Please update to access the latest features.",
