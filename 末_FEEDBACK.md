@@ -4,6 +4,8 @@
 
 > Your documentation workspace is ready.
 
+If you're unsure how to get started, [start a discussion](https://github.com/netoftrees/docs-assembler/discussions) — we're happy to help you model your first guide. Or just [email us](mailto:team@netoftrees.com).
+
 <br>
 <br>
 
@@ -55,9 +57,12 @@ Selected documentation projects featured on our demo site.
 
 ## 仓库已初始化
 
-您的文档工作区已准备就绪。
+> 您的文档工作区已准备就绪。
 
+不知道如何开始？[发起讨论](https://github.com/netoftrees/docs-assembler/discussions)——我们很乐意帮您构建第一个指南。您也可以[发送邮件](mailto:team@netoftrees.com)给我们。
 
+<br>
+<br>
 
 ## 帮助我们改进中文
 

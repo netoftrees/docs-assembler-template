@@ -16,7 +16,7 @@ This template repository is versioned independently of the Docs Assembler VS Cod
 
 ---
 
-## [0.0.26] - 2026-05-20
+## [0.0.26] - 2026-05-23
 
 ### Added
 - **`updates.json` and `notices.json`** - new centralized configuration files for update discovery and user notices.
@@ -25,6 +25,7 @@ This template repository is versioned independently of the Docs Assembler VS Cod
 ### Changed
 - **`package-assets.ts`** - updated to use `resourcesVersion` from `package.json` instead of the main `version` field for asset packaging and distribution.
 - **`release.ts`** - updated to use `resourcesVersion` from `package.json` for tagging and release automation, decoupling resource releases from extension releases.
+- **Post‑initialisation Feedback** - added help prompt to `末_FEEDBACK.md` for users unsure how to get started.
 
 ---
 
