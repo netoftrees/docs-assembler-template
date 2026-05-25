@@ -74,7 +74,7 @@
             "source": "末_FEEDBACK.md",
             "dest": "root/末_FEEDBACK.md",
             "type": "file",
-            "strategy": "skipIfExists",
+            "strategy": "cleanOverwrite",
             "description": "Repository initialisation confirmation + feedback"
         }
     ],

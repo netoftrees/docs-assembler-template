@@ -1,7 +1,7 @@
 {
   "name": "docs-assembler-template",
-  "version": "0.0.26",
-  "resourcesVersion": "0.0.26",
+  "version": "0.0.27",
+  "resourcesVersion": "0.0.27",
   "author": "netoftrees",
   "type": "module",
   "scripts": {
