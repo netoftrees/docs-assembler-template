@@ -4,7 +4,7 @@
 
 > Your documentation workspace is ready.
 
-If you're unsure how to get started, [start a discussion](https://github.com/netoftrees/docs-assembler/discussions) — we're happy to help you model your first guide. Or just [email us](mailto:team@netoftrees.com).
+If you're unsure how to get started, [start a discussion](https://github.com/netoftrees/docs-assembler/discussions) - we're happy to help you model your first guide. Or just [email us](mailto:team@netoftrees.com).
 
 <br>
 <br>
