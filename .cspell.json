@@ -1,0 +1,17 @@
+{
+    "language": "en-GB",
+    "files": [
+        "tsmaps/**/*.tsstp",
+        "tsmaps/**/*.md"
+    ],
+    "ignoreRegExpList": [
+        "{{::[A-Za-z0-9_\\.]+}}",
+        "¬import\\s+.*",
+        "`[^`]+`"
+    ],
+    "words": [
+        "tsstp",
+        "tsvar",
+        "Vscode"
+    ]
+}

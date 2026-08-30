@@ -71,6 +71,14 @@
             "description": "Append new patterns to existing .gitignore"
         },
         {
+            "source": ".cspell.json",
+            "dest": "root/.cspell.json",
+            "type": "file",
+            "strategy": "merge",
+            "mergeType": "lineByLine",
+            "description": "Append new patterns to existing .cspell.json"
+        },
+        {
             "source": "末_FEEDBACK.md",
             "dest": "root/末_FEEDBACK.md",
             "type": "file",

@@ -16,6 +16,16 @@ This template repository is versioned independently of the Docs Assembler VS Cod
 
 ---
 
+## [0.0.30] - 2026-08-30
+
+### Added
+- **`.cspell.json`** - added to the distribution package. Repositories are now compatible out-of-the-box with the Code Spell Checker extension should users choose to install it.
+
+### Changed
+- **`distribution.json`** - added `.cspell.json` entry with `merge` strategy and `lineByLine` merge type.
+
+---
+
 ## [0.0.26] - 2026-05-23
 
 ### Added

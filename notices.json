@@ -1,7 +1,7 @@
 {
   "extension": {
-    "minimumVersion": "0.9.24",
-    "latestVersion": "0.9.30",
+    "minimumVersion": "0.9.40",
+    "latestVersion": "0.9.53",
     "updateUrl": "https://open-vsx.org/extension/netoftrees/documentation-assembler",
     "messages": {
       "en": "A new version of the Docs Assembler extension is available. Please update to access the latest features.",
@@ -9,13 +9,25 @@
     }
   },
   "resources": {
-    "minimumVersion": "0.0.23",
-    "latestVersion": "0.0.25",
-    "latestTag": "v0.0.25",
+    "minimumVersion": "0.0.29",
+    "latestVersion": "0.0.30",
+    "latestTag": "v0.0.30",
     "changeLog": {
+      "0.0.30": {
+        "en": [
+          "Added: .cspell.json for out-of-the-box Code Spell Checker compatibility"
+        ],
+        "zh": [
+          "新增：.cspell.json，开箱即用支持 Code Spell Checker 扩展"
+        ]
+      },
       "0.0.25": {
-        "en": ["Fixed: ancillaries css: table, hr"],
-        "zh": ["修复：ancillaries CSS：表格、水平线"]
+        "en": [
+          "Fixed: ancillaries css: table, hr"
+        ],
+        "zh": [
+          "修复：ancillaries CSS：表格、水平线"
+        ]
       }
     },
     "messages": {
