@@ -11,7 +11,7 @@ export default interface IRenderOutline {
     v: string; // version
     r: IRenderOutlineNode; // root fragment
     c: Array<IRenderOutlineChart>; // referenced charts
-    e: number | undefined
+    e: number | undefined // exit count
     mv: any | undefined
 }
 

@@ -14,13 +14,12 @@ export default class ChainSegment implements IChainSegment {
         this.index = index;
         this.start = start;
         this.end = end;
-        this.text = `${start.text}${end?.text ?? ''}`;
     }
 
     public index: number;
-    public text: string;
     public outlineNodes: Array<IRenderOutlineNode> = [];
     public outlineNodesLoaded: boolean = false;
+    public inlineEnded: boolean = false;
 
     public start: ISegmentNode;
     public end: ISegmentNode;

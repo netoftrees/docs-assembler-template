@@ -22,6 +22,7 @@ export default class RenderFragment implements IRenderFragment {
 
     public id: string;
     public iKey: string | null = null;
+    public isInline: boolean = false;
     public iExitKey: string | null = null;
     public exitKey: string | null = null;
     public autoMergeExit: boolean = false;

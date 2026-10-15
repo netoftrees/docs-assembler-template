@@ -94,9 +94,9 @@ const gOutlineActions = {
         path: string
     ): IStateAnyArray => {
 
-        const section = state.renderState.displayGuide;
+        const guideSection = state.renderState.displayGuide;
 
-        if (!section) {
+        if (!guideSection) {
 
             return state;
         }
@@ -108,16 +108,16 @@ const gOutlineActions = {
             return state;
         }
 
-        const fragmentFolderUrl = section.guide.fragmentFolderUrl;
+        const fragmentFolderUrl = guideSection.guide.fragmentFolderUrl;
 
         if (U.isNullOrWhiteSpace(fragmentFolderUrl) === true) {
 
             return state;
         }
 
-        rootSegment.segmentInSection = section;
-        rootSegment.segmentSection = section;
-        rootSegment.segmentOutSection = section;
+        rootSegment.segmentInSection = guideSection;
+        rootSegment.segmentSection = guideSection;
+        rootSegment.segmentOutSection = guideSection;
 
         gOutlineCode.loadGuideOutlineProperties(
             state,

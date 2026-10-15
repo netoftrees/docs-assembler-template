@@ -405,11 +405,19 @@ const gFragmentCode = {
             return;
         }
 
-        gFragmentCode.clearOrphanedSteps(fragment.link?.root);
+        if (!fragment.isInline) {
+
+            gFragmentCode.clearOrphanedSteps(fragment.link?.root);
+        }
+
         gFragmentCode.clearOrphanedSteps(fragment.selected);
 
         fragment.selected = null;
-        fragment.link = null;
+
+        if (!fragment.isInline) {
+
+            fragment.link = null;
+        }
     },
 
     getFragmentAndLinkOutline_subscripion: (
@@ -582,7 +590,7 @@ const gFragmentCode = {
 
             gFragmentCode.autoExpandSingleBlankOption(
                 state,
-                result.fragment
+                fragment
             );
 
             if (!fragment.link) {
@@ -728,6 +736,26 @@ const gFragmentCode = {
                 fragment.option
             );
         }
+        else if (optionsAndAncillaries.options.length === 0) {
+
+            const displayChart = fragment.section as IDisplayChart;
+            const parent = displayChart.parent;
+
+            if (parent
+                && parent.isInline === true
+            ) {
+                const parentOptionsAndAncillaries = gFragmentCode.splitOptionsAndAncillaries(parent.options);
+
+                if (parentOptionsAndAncillaries.options.length === 1
+                    && parentOptionsAndAncillaries.options[0].option === ''
+                ) {
+                    return showOptionNode_subscripton(
+                        state,
+                        parentOptionsAndAncillaries.options[0]
+                    );
+                }
+            }
+        }
     },
 
     expandOptionPods: (
@@ -844,6 +872,7 @@ const gFragmentCode = {
         fragment.mapKeyChain = rawFragment.mapKeyChain ?? '';
         fragment.guideID = rawFragment.guideID ?? '';
         fragment.iKey = rawFragment.iKey ?? null;
+        fragment.isInline = rawFragment.isInline === true;
         fragment.exitKey = rawFragment.exitKey ?? null;
         fragment.variable = rawFragment.variable ?? [];
         fragment.classes = rawFragment.classes ?? [];
@@ -916,6 +945,12 @@ const gFragmentCode = {
             }
         }
 
+        if (state.renderState.displayGuide?.root
+            && state.renderState.displayGuide.root.id === fragment.id) {
+
+            state.renderState.displayGuide.root.value = '';
+        }
+
         gHookRegistryCode.executeStepHook(
             state,
             fragment
@@ -927,7 +962,7 @@ const gFragmentCode = {
         /*
                 <script type=\"module\" src=\"/@vite/client\"></script>
                 <!-- tsFragmentRenderComment {\"node\":{\"id\":\"dBt7Km2Ml\",\"topLevelMapKey\":\"cv1TRl01rf\",\"mapKeyChain\":\"cv1TRl01rf\",\"guideID\":\"dBt7JN1He\",\"guidePath\":\"c:/GitHub/TEST.Documentation/tsmapsdataOptionsFolder/Holder/dataOptions.tsmap\",\"parentFragmentID\":\"dBt7JN1vt\",\"chartKey\":\"cv1TRl01rf\",\"options\":[]}} -->
-
+ 
                 <h4 id=\"option-1-solution\">Option 1 solution</h4>
                 <p>Option 1 solution</p>
         */

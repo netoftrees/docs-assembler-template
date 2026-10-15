@@ -88,9 +88,15 @@ const loadNode = (
         node
     );
 
-    if (node.c) {
+    if (node.c != null) {
 
-        node.type = OutlineType.Link;
+        if (rawNode.t = 'I') {
+
+            node.type = OutlineType.Inline;
+        }
+        else {
+            node.type = OutlineType.Link;
+        }
     }
 
     if (rawNode.o

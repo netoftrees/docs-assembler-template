@@ -61,10 +61,10 @@ const buildSegmentsRenderDisplay = (
         return state;
     }
 
-    if (segments.length === 1) {
+    // if (segments.length === 1) {
 
-        throw new Error("There was only 1 segment");
-    }
+    //     throw new Error("There was only 1 segment");
+    // }
 
     const rootSegment = segments[0];
 
@@ -73,13 +73,14 @@ const buildSegmentsRenderDisplay = (
         throw new Error("GuideRoot not present");
     }
 
-    const firstSegment = segments[1];
+    // const firstSegment = segments[1];
 
-    if (!firstSegment.start.isLast
-        && firstSegment.start.type !== OutlineType.Link
-    ) {
-        throw new Error("Invalid query string format - it should start with '-' or '~'");
-    }
+    // if (!rootSegment.start.isLast
+    //     && firstSegment.start.type !== OutlineType.Link
+    //     && firstSegment.start.type !== OutlineType.Inline
+    // ) {
+    //     throw new Error("Invalid query string format - it should start with '-' or '~' or '!");
+    // }
 
     return [
         state,

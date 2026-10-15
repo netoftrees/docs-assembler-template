@@ -354,8 +354,8 @@ const gUtilities = {
     trimAndAddEllipsis: (input: string): string => {
 
         let output: string = input.trim();
-        let punctuationRegex: RegExp = /[.,\/#!$%\^&\*;:{}=\-_`~()]/g;
-        let spaceRegex: RegExp = /\W+/g;
+        let punctuationRegex: RegExp = /[.,\/#!$%\^&\*;:{}=\-_`~()]/;
+        let spaceRegex: RegExp = /\W+/;
         let lastCharacter: string = output[output.length - 1];
 
         let lastCharacterIsPunctuation: boolean =

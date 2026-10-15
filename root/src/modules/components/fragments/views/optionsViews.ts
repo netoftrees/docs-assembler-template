@@ -597,9 +597,14 @@ const optionsViews = {
 
         if (!fragment.options
             || fragment.options.length === 0
-            || !U.isNullOrWhiteSpace(fragment.iKey) // Don't draw options of links
-            || fragment.gPath // Don't draw options of remote guide links
         ) {
+            return;
+        }
+
+        if (!fragment.isInline
+            && (!U.isNullOrWhiteSpace(fragment.iKey) // Don't draw options of links
+                || fragment.gPath // Don't draw options of remote guide links
+            )) {
             return;
         }
 

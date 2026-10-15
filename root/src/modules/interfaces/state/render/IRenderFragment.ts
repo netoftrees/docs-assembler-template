@@ -8,6 +8,7 @@ export default interface IRenderFragment {
 
     id: string;
     iKey: string | null;
+    isInline: boolean;
     iExitKey: string | null;
     exitKey: string | null;
     autoMergeExit: boolean;

@@ -8,5 +8,7 @@ export default interface ISegmentNode {
     type: OutlineType;
     isRoot: boolean;
     isLast: boolean;
+    isSilent: boolean;
+    segmentIndex: number;
 }
 
