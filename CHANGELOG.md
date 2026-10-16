@@ -16,6 +16,11 @@ This template repository is versioned independently of the Docs Assembler VS Cod
 
 ---
 
+## [0.0.31] - 2026-10-15
+
+### Added
+- **Inlined Maps** - Maps can now be inlined into a calling step's discussion. Unlike linked maps, an inline map has no outputs and does not define the calling step's branching. In contrast, linked maps have outputs to which the calling step must define what happens next.
+
 ## [0.0.30] - 2026-08-30
 
 ### Added

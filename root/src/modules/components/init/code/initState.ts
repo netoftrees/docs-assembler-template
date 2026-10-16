@@ -6,7 +6,6 @@ import U from "../../../global/gUtilities";
 import gRenderEffects from "../../../global/effects/gRenderEffects";
 import gRenderCode from "../../../global/code/gRenderCode";
 import gSegmentCode from "../../../global/code/gSegmentCode";
-import { OutlineType } from "../../../interfaces/enums/OutlineType";
 
 
 const initialiseState = (): IState => {

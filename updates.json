@@ -1,7 +1,7 @@
 {
   "extension": {
-    "minimumVersion": "0.9.40",
-    "latestVersion": "0.9.53",
+    "minimumVersion": "0.10.1",
+    "latestVersion": "0.10.1",
     "updateUrl": "https://open-vsx.org/extension/netoftrees/documentation-assembler",
     "messages": {
       "en": "A new version of the Docs Assembler extension is available. Please update to access the latest features.",
@@ -9,24 +9,24 @@
     }
   },
   "resources": {
-    "minimumVersion": "0.0.29",
-    "latestVersion": "0.0.30",
-    "latestTag": "v0.0.30",
+    "minimumVersion": "0.0.31",
+    "latestVersion": "0.0.31",
+    "latestTag": "v0.0.31",
     "changeLog": {
+      "0.0.31": {
+        "en": [
+          "Added: Inlined maps - maps can now be inlined into a calling step's discussion without defining branching"
+        ],
+        "zh": [
+          "新增：内联地图——现在可以将地图内联到调用步骤的讨论中，无需定义分支"
+        ]
+      },
       "0.0.30": {
         "en": [
           "Added: .cspell.json for out-of-the-box Code Spell Checker compatibility"
         ],
         "zh": [
           "新增：.cspell.json，开箱即用支持 Code Spell Checker 扩展"
-        ]
-      },
-      "0.0.25": {
-        "en": [
-          "Fixed: ancillaries css: table, hr"
-        ],
-        "zh": [
-          "修复：ancillaries CSS：表格、水平线"
         ]
       }
     },

@@ -1,9 +1,9 @@
 {
-  "version": "0.0.30",
+  "version": "0.0.31",
   "name": "docs-assembler-assets",
-  "generatedAt": "2026-08-30T11:48:17.212Z",
+  "generatedAt": "2026-10-16T17:50:48.251Z",
   "zipName": "docs-assembler-assets.zip",
-  "zipSize": 330304,
-  "zipHash": "fc5ef93240a0b61a613587322dca4c96c552f2835be6a77d3bf16a332512d033",
+  "zipSize": 336119,
+  "zipHash": "71e0959262436c2e1834066a021c428d546870caa4a44d7ed23c63d7d58489a3",
   "fileCount": 21
 }
